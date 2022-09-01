@@ -4,9 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>LearnSomething: Build Beautiful Courses</title>
+    <title>Eduplanet: Build Beautiful Courses</title>
     <meta property="og:type" content="website">
     <meta name="description" content="Create beautiful courses for your audience. idk">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/logo-app-16x-transparent-one_color.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/logo-app-32x-transparent-one_color.png">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/-Login-form-Page-BS4--Login-form-Page-BS4.css">
     <link rel="stylesheet" href="assets/css/Articles-Badges-images.css">

@@ -4,9 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>LearnSomething: Build Beautiful Courses</title>
+    <title>Eduplanet: Build Beautiful Courses</title>
     <meta property="og:type" content="website">
     <meta name="description" content="Create beautiful courses for your audience. idk">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/logo-app-16x-transparent-one_color.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/logo-app-32x-transparent-one_color.png">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/-Login-form-Page-BS4--Login-form-Page-BS4.css">
     <link rel="stylesheet" href="assets/css/Articles-Badges-images.css">
@@ -20,14 +22,13 @@
     <div class="container-fluid">
         <div class="row mh-100vh">
             <div class="col-10 col-sm-8 col-md-6 col-lg-6 offset-1 offset-sm-2 offset-md-3 offset-lg-0 align-self-center d-lg-flex align-items-lg-center align-self-lg-stretch bg-white p-5 rounded rounded-lg-0 my-5 my-lg-0" id="login-block">
-                <div class="m-auto w-lg-75 w-xl-50"><img src="assets/img/logo-transparent.png" style="height: 60px;opacity: 0.65;">
-                    <form action="loggingin.php" method="post">
-                        <?php if (isset($_GET['error'])) { ?>
-                            <p class="text-white bg-danger"><?php echo $_GET['error']; ?></p>
-                        <?php } ?>
-                        <?php if (isset($_GET['success'])) { ?>
-                            <p class="text-white bg-success"><?php echo $_GET['success']; ?></p>
-                        <?php } ?>
+                <div class="m-auto w-lg-75 w-xl-50"><img src="assets/img/logo-transparent.png" style="height: 60px;opacity: 0.65;margin-bottom: 10px;">
+                    <form action="loggingin.php" method="post"><?php if (isset($_GET['error'])) { ?>
+    <p class="text-white bg-danger"><?php echo $_GET['error']; ?></p>
+<?php } ?>
+<?php if (isset($_GET['success'])) { ?>
+    <p class="text-white bg-success"><?php echo $_GET['success']; ?></p>
+<?php } ?>
                         <div class="form-group mb-3"><label class="form-label text-secondary">Email</label><input class="form-control" type="text" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}$" inputmode="email" name="email"></div>
                         <div class="form-group mb-3"><label class="form-label text-secondary">Password</label><input class="form-control" type="password" required="" minlength="8" name="password"></div><button class="btn btn-info mt-2" type="submit" style="color: white;background: linear-gradient(45deg, #088eb8 0%, #29caeb 67%, #9de0ea 100%);">Log In</button>
                     </form>
