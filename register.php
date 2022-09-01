@@ -20,18 +20,13 @@
     <div class="container-fluid">
         <div class="row mh-100vh">
             <div class="col-10 col-sm-8 col-md-6 col-lg-6 offset-1 offset-sm-2 offset-md-3 offset-lg-0 align-self-center d-lg-flex align-items-lg-center align-self-lg-stretch bg-white p-5 rounded rounded-lg-0 my-5 my-lg-0" id="login-block">
-                <div class="m-auto w-lg-75 w-xl-50"><img src="assets/img/logo-transparent.png" style="height: 60px;opacity: 0.65;">
-                    <form action="loggingin.php" method="post">
-                        <?php if (isset($_GET['error'])) { ?>
-                            <p class="text-white bg-danger"><?php echo $_GET['error']; ?></p>
-                        <?php } ?>
-                        <?php if (isset($_GET['success'])) { ?>
-                            <p class="text-white bg-success"><?php echo $_GET['success']; ?></p>
-                        <?php } ?>
+                <div class="m-auto w-lg-75 w-xl-50"><img src="assets/img/logo-transparent.png" style="height: 60px;opacity: 0.65;margin-bottom: 10px;">
+                    <form action="registering.php" method="post">
+                        <div class="form-group mb-3"><label class="form-label text-secondary">Username</label><input class="form-control" type="text" required="" pattern="[A-Za-z0-9]+" name="name" minlength="2" maxlength="24"></div>
                         <div class="form-group mb-3"><label class="form-label text-secondary">Email</label><input class="form-control" type="text" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}$" inputmode="email" name="email"></div>
-                        <div class="form-group mb-3"><label class="form-label text-secondary">Password</label><input class="form-control" type="password" required="" minlength="8" name="password"></div><button class="btn btn-info mt-2" type="submit" style="color: white;background: linear-gradient(45deg, #088eb8 0%, #29caeb 67%, #9de0ea 100%);">Log In</button>
+                        <div class="form-group mb-3"><label class="form-label text-secondary">Password</label><input class="form-control" type="password" required="" minlength="8" name="password" maxlength="24"></div><button class="btn btn-info mt-2" type="submit" style="color: white;background: linear-gradient(45deg, #088eb8 0%, #29caeb 67%, #9de0ea 100%);">Register</button>
                     </form>
-                    <p class="mt-3 mb-0"><a class="text-info small" href="#" style="color: #0dcaf0;">Forgot your email or password?</a></p>
+                    <p class="mt-3 mb-0"><a class="text-info small" href="login.php" style="color: #0dcaf0;"><span style="color: rgb(13, 172, 240);">Already a member? Login here!</span></a></p>
                 </div>
             </div>
             <div class="col-lg-6 d-flex align-items-end" id="bg-block" style="background-image:url(&quot;assets/img/aldain-austria-316143-unsplash.jpg&quot;);background-size:cover;background-position:center center;">

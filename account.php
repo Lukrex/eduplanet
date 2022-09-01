@@ -13,7 +13,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
         <title>Account</title>
     </head>
     <body>
-        <h1> Hello, <?php echo $_SESSION['email']; ?>!</h1>
+        <h1> Hello, <?php echo $_SESSION['name']; ?>!</h1>
         <a href="loggingout.php">Logout</a>
     </body>
     </html>

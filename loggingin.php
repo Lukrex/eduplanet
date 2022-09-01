@@ -18,29 +18,34 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     $email = validate($_POST['email']);
     $pass = validate($_POST['password']);
     
-    $sql = "SELECT * FROM users WHERE email='$email' AND password='$pass'";
+    $sql = "SELECT * FROM users WHERE email='$email'";
     
     $result = mysqli_query($conn, $sql);
     
-    //if email and password match with sth in database, show login session
+    //if email and password match with the database, login
     if (mysqli_num_rows($result) === 1) {
         $row = mysqli_fetch_assoc($result);
-        if($row['email'] === $email && $row['password'] === $pass) {
-            echo "Logged In!";
-            $_SESSION['email'] = $row['email'];
-            $_SESSION['name'] = $row['name'];
-            $_SESSION['id'] = $row['id'];
-            header("Location: account.php");
-            exit();
+        if($row['email'] === $email) {
+            if (password_verify($pass, $row['password'])) {
+                echo "Logged In!";
+                $_SESSION['email'] = $row['email'];
+                $_SESSION['name'] = $row['name'];
+                $_SESSION['id'] = $row['id'];
+                header("Location: account.php");
+                exit();
+            } else {
+                header("Location: login.php?error=Incorrect Email and Password");
+                exit();
+            }
         } else {
-            header("Location: login.php?error=Incorrect Email or Password");
+            header("Location: login.php?error=Incorrect Email and Password");
             exit();
         }
     } else {
-        header("Location: index.php?error=Incorect Email or password");
+        header("Location: login.php?error=Incorrect Email and Password");
         exit();
     }
 } else {
-    header("Location: index.php");
+    header("Location: login.php");
     exit();
 }
