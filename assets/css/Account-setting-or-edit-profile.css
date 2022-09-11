@@ -46,7 +46,7 @@
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
-  font-size: .825rem;
+  font-size: 0.825rem;
   background: #ffffff;
   color: #2e323c;
 }
@@ -82,4 +82,3 @@
 #submit {
   margin-right: 10px;
 }
-
