@@ -15,21 +15,28 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])
     $email = validate($_POST['email']);
     $pass = validate($_POST['password']);
     
-    if ($stmt = $conn->prepare("SELECT id, password FROM users WHERE name = ?")) {
-        $stmt->bind_param("s", $name);
+    if ($stmt = $conn->prepare("SELECT id, password FROM users WHERE email = ?")) {
+        $stmt->bind_param("s", $email);
         $stmt->execute();
         $stmt->store_result();
 
-        if ($stmt = $conn->prepare("INSERT INTO users (email, password, name) VALUES (?, ?, ?)")) {
-            $hashedPass = password_hash($pass, PASSWORD_DEFAULT);
-            $stmt->bind_param("sss", $email, $hashedPass, $name);
-            $stmt->execute();
-            header("Location: login.php?success=Succesfully registered! Now login.");
+        if ($stmt->num_rows() > 0) {
+            header("Location: register.php?error=Email already exists.");
             exit();
         } else {
-            echo "Error Occured";
+            if ($stmt = $conn->prepare("INSERT INTO users (email, password, name) VALUES (?, ?, ?)")) {
+                $hashedPass = password_hash($pass, PASSWORD_DEFAULT);
+                $stmt->bind_param("sss", $email, $hashedPass, $name);
+                $stmt->execute();
+                header("Location: login.php?success=Succesfully registered! Now login.");
+                exit();
+            } else {
+                echo "Error Occured";
+            }
         }
         $stmt->close();
+    } else {
+        echo "Error Occured";
     }
 } else {
     echo "Error Occured";

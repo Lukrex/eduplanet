@@ -87,32 +87,6 @@ iframe {
   top: -2.5rem;
 }
 
-.open {
-  animation: open 0.5s ease-out;
-}
-
-@keyframes open {
-  from {
-    transform: scale(0);
-  }
-  to {
-    transform: scale(1);
-  }
-}
-
-.close {
-  animation: close 0.5s ease-in;
-}
-
-@keyframes close {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(0);
-  }
-}
-
 .exit {
   position: relative;
   height: 1rem;
